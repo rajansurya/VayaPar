@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 public class Enquiry extends Activity implements View.OnClickListener, SignUpAPICall.CallBackToClass {
     private EditText company_name, email, phone, contact_person;
-    private Button submit;
+    private Button submit,dd;
     TextView backto;
 
     @Override
