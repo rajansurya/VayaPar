@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Vaypar Express</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Hello Food!</string>
+    <string name="slide_1_desc">The easiest way to order food from your favourite restaurant!</string>
+
+    <string name="slide_2_title">Movie Tickets</string>
+    <string name="slide_2_desc">Book movie tickets for your family and friends!</string>
+
+    <string name="slide_3_title">Great Discounts</string>
+    <string name="slide_3_desc">Best discounts on every single service we offer!</string>
+
+    <string name="slide_4_title">World Travel</string>
+    <string name="slide_4_desc">Book tickets of any transportation and travel the world!</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+    <string name="selectstate">Select State</string>
+    <string name="selectdistrict">Select District</string>
+    <string name="campany_name">Business Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Phone</string>
+    <string name="hint_mobile">Mobile</string>
+    <string name="contact_person">Contact Person </string>
+    <string name="dealswith">What? e.g. Rice Miller</string>
+    <string name="select_state">Please select your state</string>
+<string name="overview">It gives us immense inner pleasures that we have been blessed with an opportunity to serve the business community of food grain trade and processing industries for over 49 years. This is mainly because of the utmost co-operation and blessings of our clients and entire fraternity of this trade that we are constantly marching forward to achieve our goals/targets successfully with amazing and tremendous publications of VYAPAR EXPRESS. In fact, our growth has been quiet rapid. In continuation, we are delighted  to add one more publication in your possession  VYAPAR EXPRESS TRADE DIRECTORY , But we are not resting on our laurels as our appetite for progress is sky- high as our entire team with their killer instinct is always focused and on the move. We always welcome the change which is imminent with open mind and zeal \u266b zest
+
+India is a country based on agriculture which caters almost 70% population of our country. At the time of deciding the launching of our VYAPAR EXPRESS publications, we had targeted to serve the food trade and processing industries; and our leadership with great vision and foresightedness, minutely studied the latest modern trade activities globally in Indian food processing industries. Through this edition of VYAPAR EXPRESS TRADE DIRECTORY, We have incorporated complete relevant data to feed all types of Grain Brokers-Traders-Exporters-Importers of Rice, Pulses, Wheat, Milk \u266b Other allied Products and their advertisements.
+
+We, both of us, are highly pleased to avail an opportunity to extend our hearty gratifications to our worthy clients operating in India \u266b other parts of the world. We are also thankful to our all other counterparts and the entire print media fraternity. It will be injustice on our part if we do not express our thanks to our experienced \u266b  dedicated staff who, by dint of consistent hard \u266b honest team work have made it possible to hand over the above issue from our pioneer publications serving over four decades.
+
+Although, during entire process of this publications, we have carefully taken all possible precautions and efforts to maintain the authenticity of our statistics/data (based on the survey of staff and reliable sources) in this publications, yet VYAPAR EXPRESS should not be held responsible for occurrence of any inaccuracy because of frequent revolutionary changes in the field of information and technology from time to time.</string>
+    <string name="listing">Looking for Business Listing?  </string>
+    <string name="listingup">Fill up below details to get in listing. </string>
+    <string name="emailst">Valid Email ID</string>
+    <string name="msg">Your message here</string>
+    <string name="vision">We wish to say that this exhibition is also a meeting point for well-known and reputed wholesalers, traders, manufacturers, importers &amp; exporters, mediators, policy makers and media &amp; other stakeholders to discuss their problems and share their different knowledge and presenting the innovative solutions for the growth of the food processing industry in India.</string>
+
+    <string name="mission">We have very broad vision on this special eve, a buyer-seller meet providing a platform for the Indian Grain &amp; Grain Processing industry to showcase its product and services, strength and capabilities</string>
+    <string name="compmsg">It gives us immense inner pleasures that we have been blessed with an opportunity to serve the business community of food grain trade and processing industries for over 49 years. This is mainly because of the utmost co-operation and blessings of our clients and entire fraternity of this trade that we are constantly marching forward to achieve our goals/targets successfully with amazing and tremendous publications of VYAPAR EXPRESS. In fact, our growth has been quiet rapid. In continuation, we are delighted  to add one more publication in your possession  VYAPAR EXPRESS TRADE DIRECTORY , But we are not resting on our laurels as our appetite for progress is sky- high as our entire team with their killer instinct is always focused and on the move. We always welcome the change which is imminent with open mind and zeal &amp; zest</string>
+</resources>

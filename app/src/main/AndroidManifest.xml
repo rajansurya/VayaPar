@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.rdx.vayparexpress">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/appicon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity android:name=".WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ListingView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BusinessDetail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Enquiry"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".SubcategoryList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FilterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="CompanyOverView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.rdx.vayparexpress.SearchYourBusiness"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DistrictCityView"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

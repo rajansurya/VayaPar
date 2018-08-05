@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:background="@drawable/rice_search"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/round_background_edittextsearch"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/lefticon2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/location" />
+
+        <TextView
+            android:id="@+id/secicon2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/lefticon2"
+            android:background="@drawable/line" />
+
+        <AutoCompleteTextView
+            android:id="@+id/dealsWith"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/secicon2"
+            android:background="@drawable/edittext_bk"
+            android:completionThreshold="1"
+            android:dropDownVerticalOffset="5dp"
+            android:dropDownWidth="wrap_content"
+            android:gravity="center|left"
+            android:hint="@string/dealswith"
+            android:inputType="textAutoComplete|textAutoCorrect"
+            android:padding="3dp"
+            android:popupBackground="@color/white"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_weight=".15"
+            android:padding="6dp"
+            android:onClick="callAPICategory"
+            android:src="@drawable/timthumb" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:text="OR"
+        android:textColor="@color/white" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:background="@drawable/round_background_edittextsearch"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/lefticon1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/company_search" />
+
+        <TextView
+            android:id="@+id/secicon1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/lefticon1"
+            android:background="@drawable/line" />
+
+        <AutoCompleteTextView
+            android:id="@+id/searchlocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_margin="2dp"
+            android:layout_toRightOf="@+id/secicon1"
+            android:layout_weight=".85"
+            android:background="@drawable/edittext_bk"
+            android:completionThreshold="1"
+            android:dropDownVerticalOffset="5dp"
+            android:dropDownWidth="wrap_content"
+            android:hint="Company name here"
+            android:inputType="textAutoComplete|textAutoCorrect"
+            android:padding="5dp"
+            android:popupBackground="@color/white"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/search_location1"
+            android:layout_width="wrap_content"
+            android:onClick="callAPIBusiness"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_weight=".15"
+            android:padding="6dp"
+            android:src="@drawable/timthumb" />
+    </RelativeLayout>
+
+</LinearLayout>
