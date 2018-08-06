@@ -5,9 +5,6 @@ package com.example.rdx.vayparexpress;
  */
 
 import android.content.Context;
-import android.graphics.Color;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -17,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -77,22 +73,28 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.MyViewHo
         BussinessDetailListingData movie = moviesList.get(position);
         holder.companyName.setText(movie.getCompanyName());
         holder.address.setText(movie.getLocation());//+ " " + movie.getDistrict() + " " + movie.getState()
-        holder.dealswith.setText("Deals in - "+movie.getDealwith());
+        holder.dealswith.setText("Deals in - " + movie.getDealwith());
 //        holder.mobileno.setText(movie.getMobile());
-        String []splitedata=movie.getCompanyName().trim().split(" ");
-        String shortname="";
-        if (splitedata.length>=2){
-            shortname=splitedata[0].substring(0,1).toUpperCase();
-            String secondst=splitedata[1];
+        String[] splitedata = movie.getCompanyName().trim().split(" ");
+        String shortname = "";
+        if (splitedata.length >= 2) {
+            shortname = splitedata[0].substring(0, 1).toUpperCase();
+            String secondst = splitedata[1];
             if (!TextUtils.isEmpty(secondst))
-            shortname=shortname+secondst.substring(0,1).toUpperCase();
-        }else if (splitedata.length==1){
-            shortname=splitedata[0].substring(0,1).toUpperCase();
+                shortname = shortname + secondst.substring(0, 1).toUpperCase();
+        } else if (splitedata.length == 1) {
+            shortname = splitedata[0].substring(0, 1).toUpperCase();
         }
 
 
-        TextDrawable drawable = TextDrawable.builder()
-                .buildRoundRect(shortname, context.getColor(R.color.header),14);
+        TextDrawable drawable = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            drawable = TextDrawable.builder()
+                    .buildRoundRect(shortname, context.getColor(R.color.header), 14);
+        } else {
+            drawable = TextDrawable.builder()
+                    .buildRoundRect(shortname, context.getResources().getColor(R.color.header), 14);
+        }
         holder.logo.setImageDrawable(drawable);
 //        Glide.with(context).load(movie.getLogo()).placeholder(R.drawable.noimage).into(holder.logo);
     }
