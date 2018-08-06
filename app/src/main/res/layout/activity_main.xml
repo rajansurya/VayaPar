@@ -152,9 +152,8 @@
 
                     <android.support.v4.view.ViewPager
                         android:id="@+id/view_pager"
-						android:layout_height="220dp" 
                         android:layout_width="match_parent"
-                        />
+                        android:layout_height="220dp" />
 
                     <com.example.rdx.vayparexpress.DotsIndicator
                         android:id="@+id/dots_indicator"
@@ -259,20 +258,20 @@
                         android:id="@+id/popular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAllCaps="true"
                         android:padding="10dp"
                         android:text=" Popular "
+                        android:textAllCaps="true"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/othercat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:layout_alignParentTop="true"
                         android:clickable="true"
-                        android:textAllCaps="true"
+                        android:padding="10dp"
                         android:text=" Others "
+                        android:textAllCaps="true"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -304,8 +303,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/exploreall"
