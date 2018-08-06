@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class CityList {
     private String message;
+    private String messagess;
 
     public String getMessage() {
         return message;
