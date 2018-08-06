@@ -1024,7 +1024,7 @@ public class MainActivity extends AppCompatActivity implements SignUpAPICall.Cal
                     startActivity(intent);
                 }
             });
-            Glide.with(MainActivity.this).load(object.get(position).getLogo()).placeholder(R.drawable.noimage).into(ads);
+            Glide.with(MainActivity.this).load(object.get(position).getBanner()).placeholder(R.drawable.noimage).into(ads);
             container.addView(view);
 
             return view;

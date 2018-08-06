@@ -9,6 +9,16 @@ import android.os.Parcelable;
 public class BussinessDetailListingData implements Parcelable {
     private String id;
 
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    private String rating;
+
     public String getLogo() {
         return logo;
     }
@@ -18,6 +28,16 @@ public class BussinessDetailListingData implements Parcelable {
     }
 
     private String logo;
+
+    public String getBanner() {
+        return banner;
+    }
+
+    public void setBanner(String banner) {
+        this.banner = banner;
+    }
+
+    private String banner;
 
     public String getId() { return this.id; }
 
@@ -141,7 +161,9 @@ public class BussinessDetailListingData implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.id);
+        dest.writeString(this.rating);
         dest.writeString(this.logo);
+        dest.writeString(this.banner);
         dest.writeString(this.companyName);
         dest.writeString(this.website);
         dest.writeString(this.category);
@@ -162,7 +184,9 @@ public class BussinessDetailListingData implements Parcelable {
 
     protected BussinessDetailListingData(Parcel in) {
         this.id = in.readString();
+        this.rating = in.readString();
         this.logo = in.readString();
+        this.banner = in.readString();
         this.companyName = in.readString();
         this.website = in.readString();
         this.category = in.readString();

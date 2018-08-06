@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
@@ -36,9 +37,11 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView companyName, address, dealswith;//, email, mobileno;
         ImageView logo;
+        RatingBar rating_view;
 
         public MyViewHolder(View view) {
             super(view);
+            rating_view = (RatingBar) view.findViewById(R.id.rating_view);
             logo = (ImageView) view.findViewById(R.id.logo);
             companyName = (TextView) view.findViewById(R.id.companyName);
             address = (TextView) view.findViewById(R.id.address);
@@ -71,6 +74,7 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.MyViewHo
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         BussinessDetailListingData movie = moviesList.get(position);
+
         holder.companyName.setText(movie.getCompanyName());
         holder.address.setText(movie.getLocation());//+ " " + movie.getDistrict() + " " + movie.getState()
         holder.dealswith.setText("Deals in - " + movie.getDealwith());
@@ -96,6 +100,12 @@ public class ListingAdapter extends RecyclerView.Adapter<ListingAdapter.MyViewHo
                     .buildRoundRect(shortname, context.getResources().getColor(R.color.header), 14);
         }
         holder.logo.setImageDrawable(drawable);
+        try {
+            if (!TextUtils.isEmpty(movie.getRating()))
+                holder.rating_view.setRating(Float.parseFloat(movie.getRating()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 //        Glide.with(context).load(movie.getLogo()).placeholder(R.drawable.noimage).into(holder.logo);
     }
 

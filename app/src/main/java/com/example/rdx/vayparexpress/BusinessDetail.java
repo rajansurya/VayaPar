@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,11 +25,12 @@ import data.model.BussinessDetailListingData;
  * Created by RDX on 12/26/2017.
  */
 public class BusinessDetail extends Activity implements View.OnClickListener {
-    private TextView companyName, subcotegory, contact_person, email, website_link, dealswith, address, cotegory, location, district,  phoneno1,phoneno2;//state
+    private TextView companyName, subcotegory, contact_person, email, website_link, dealswith, address, cotegory, location, district, phoneno1, phoneno2;//state
     private ImageView logo;
-    private LinearLayout emaillink,website,call;
+    private LinearLayout emaillink, website, call;
     //    private Toolbar toolbar;
     private BussinessDetailListingData myParcelableObject;
+    private RatingBar rating_bussiness;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class BusinessDetail extends Activity implements View.OnClickListener {
         myParcelableObject = (BussinessDetailListingData) i.getParcelableExtra("DETAILDATA");
         System.out.println(myParcelableObject.getAddress());
         logo = (ImageView) findViewById(R.id.logo);
+        rating_bussiness = (RatingBar) findViewById(R.id.rating_bussiness);
         subcotegory = (TextView) findViewById(R.id.subcotegory);
         contact_person = (TextView) findViewById(R.id.contact_person);
         companyName = (TextView) findViewById(R.id.companyName);
@@ -64,7 +67,7 @@ public class BusinessDetail extends Activity implements View.OnClickListener {
         phoneno2 = (TextView) findViewById(R.id.phoneno2);
         dealswith = (TextView) findViewById(R.id.dealswith);
 
-        Glide.with(BusinessDetail.this).load(myParcelableObject.getLogo()).placeholder(R.drawable.noimage).into(logo);
+        Glide.with(BusinessDetail.this).load(myParcelableObject.getBanner()).placeholder(R.drawable.noimage).into(logo);
         address.setText(myParcelableObject.getAddress());
         email.setText(myParcelableObject.getEmail());
 //        call.setText(myParcelableObject.getMobile());
@@ -82,9 +85,15 @@ public class BusinessDetail extends Activity implements View.OnClickListener {
         //state.setText(myParcelableObject.getState());
         phoneno1.setText(myParcelableObject.getMobile());
         phoneno2.setText(myParcelableObject.getPhone());
-        dealswith.setText("Mfrs. of "+myParcelableObject.getDealwith());
+        dealswith.setText("Mfrs. of " + myParcelableObject.getDealwith());
         subcotegory.setText(myParcelableObject.getSubcategory());
         contact_person.setText(myParcelableObject.getContactperson());
+        try {
+            if (!TextUtils.isEmpty(myParcelableObject.getRating()))
+                rating_bussiness.setRating(Float.parseFloat(myParcelableObject.getRating()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
