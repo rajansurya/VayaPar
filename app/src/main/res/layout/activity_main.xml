@@ -152,8 +152,9 @@
 
                     <android.support.v4.view.ViewPager
                         android:id="@+id/view_pager"
+						android:layout_height="220dp" 
                         android:layout_width="match_parent"
-                        android:layout_height="220dp" />
+                        />
 
                     <com.example.rdx.vayparexpress.DotsIndicator
                         android:id="@+id/dots_indicator"
