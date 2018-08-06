@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_gravity="center_vertical"
+    android:layout_marginBottom="7dp"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="5dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center"
+            android:padding="1dp"
+            android:scaleType="centerCrop" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="7dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/companyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RatingBar
+                android:id="@+id/rating_view"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:numStars="5"
+                android:rating="3.5"
+                android:theme="@style/RatingBar" />
+
+            <ImageView
+                android:id="@+id/locicon"
+                android:layout_width="18dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/rating_view"
+                android:src="@drawable/location" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/locicon"
+                android:drawablePadding="2dp"
+                android:maxLines="2" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/dealswith"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:drawableLeft="@drawable/mfrs"
+
+            android:drawablePadding="5dp"
+            android:maxLines="3" />
+
+        <!-- <TextView
+             android:id="@+id/mobileno"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textColor="@color/black" />-->
+    </LinearLayout>
+</LinearLayout>
