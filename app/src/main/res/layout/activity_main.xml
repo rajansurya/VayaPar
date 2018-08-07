@@ -459,7 +459,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:gravity="center"
-                            android:src="@drawable/website" />
+                            android:src="@drawable/website_white" />
 
                         <!--<TextView
 

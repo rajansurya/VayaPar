@@ -44,8 +44,18 @@
                 android:gravity="center_horizontal"
                 android:text="@string/listing"
                 android:textColor="@color/black"
-                android:textSize="21dp" />
-
+                android:textSize="15sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/headerlist"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/header"
+                android:textSize="16sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:gravity="center_horizontal"
+                android:text="@string/listingup" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -78,20 +88,13 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/secicon"
                 android:background="@null"
-
                 android:drawablePadding="10dp"
+                android:textSize="13sp"
                 android:hint="@string/campany_name"
                 android:inputType="text"
                 android:paddingLeft="10dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/lefticon"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="41dp"
-                android:gravity="center_horizontal"
-                android:text="@string/listingup" />
+
 
         </RelativeLayout>
 
@@ -105,9 +108,12 @@
             <TextView
                 android:id="@+id/lefticon1"
                 android:layout_width="16dp"
-                android:layout_height="20dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/contactperson" />
+                android:layout_height="16dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/contact_person" />
 
             <TextView
                 android:id="@+id/secicon1"
@@ -126,9 +132,9 @@
                 android:background="@null"
                 android:drawablePadding="10dp"
                 android:hint="@string/contact_person"
+                android:textSize="13sp"
                 android:inputType="text"
                 android:paddingLeft="10dp" />
-
         </RelativeLayout>
 
         <RelativeLayout
@@ -163,6 +169,7 @@
                 android:background="@null"
                 android:drawablePadding="10dp"
                 android:hint="Mobile/Phone"
+                android:textSize="13sp"
                 android:inputType="text"
                 android:paddingLeft="10dp" />
 
@@ -199,6 +206,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/secicon3"
                 android:background="@null"
+                android:textSize="13sp"
                 android:drawablePadding="10dp"
                 android:hint="@string/emailst"
                 android:inputType="text"
@@ -237,6 +245,7 @@
                 android:drawablePadding="10dp"
                 android:hint="@string/msg"
                 android:inputType="text"
+                android:textSize="13sp"
                 android:paddingLeft="10dp" />
 
 
@@ -252,6 +261,7 @@
             android:layout_marginTop="-20dp"
             android:background="@drawable/buttonbackgr"
             android:gravity="center"
+            android:layout_marginBottom="20dp"
             android:text="Submit"
             android:textColor="@color/white" />
     </LinearLayout>

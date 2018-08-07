@@ -21,7 +21,7 @@ public class CompanyOverView extends Activity{
        /* WebView overview=(WebView)findViewById(R.id.overview);
         overview.loadData(getString(R.string.overview), "text/html; charset=UTF-8", null);*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Company Overview");
+//        toolbar.setTitle("Company Overview");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
