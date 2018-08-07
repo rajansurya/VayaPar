@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -55,6 +56,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import data.model.BussinessDetailListing;
 import data.model.BussinessDetailListingData;
@@ -353,11 +355,11 @@ public class MainActivity extends AppCompatActivity implements SignUpAPICall.Cal
 //        });
         setBAckColor();
         String URL = BuildConfig.SERVER_URL + "public/api/allcategory/2";
-        new SignUpAPICall(URL, 1, "category2", MainActivity.this, this).execute();
+        new SignUpAPICall(URL, 1, "category2", MainActivity.this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         String URLstate = BuildConfig.SERVER_URL + "public/api/statedata";
-        new SignUpAPICall(URLstate, 1, "state", MainActivity.this, this).execute();
+        new SignUpAPICall(URLstate, 1, "state", MainActivity.this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         String ads = BuildConfig.SERVER_URL + "public/api/adslist/0";
-        new SignUpAPICall(ads, 1, "ads", MainActivity.this, this).execute(new JSONObject());
+        new SignUpAPICall(ads, 1, "ads", MainActivity.this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,new JSONObject());
         popular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

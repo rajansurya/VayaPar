@@ -1,7 +1,6 @@
 package com.example.rdx.vayparexpress;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
@@ -38,37 +37,29 @@ public class OptionsDeserilizerDistirct implements JsonDeserializer<State> {
 ////            System.out.println("CITY " + gsonObj.getDistrict());
 ////            System.out.println("CITY " + gsonObj.getCitylist().get(0).getCity());
 //                } else {
-                    State notcity = new State();
+                State notcity = new State();
 
-                    ArrayList<Districtlist_Data> districtlist_datacity = new ArrayList<>();
-                    for (JsonElement districtlist : jsonObject.get("districtlist").getAsJsonArray()) {
-                        if (districtlist.getAsJsonObject().has("citylist")) {
-                            if (!districtlist.getAsJsonObject().get("citylist").isJsonArray()) {
-                                Districtlist_Data districtlist_data = new Districtlist_Data();
-                                districtlist_data.setCitylist(new ArrayList<Citylist_Data>());
-                                districtlist_data.setDistrictid(districtlist.getAsJsonObject().get("districtid").getAsString());
-                                districtlist_data.setDistrict(districtlist.getAsJsonObject().get("district").getAsString());
-                                districtlist_datacity.add(districtlist_data);
-                            }else{
-                                Gson gson = new Gson();
-                                Districtlist_Data    gsonObjloccc = gson.fromJson(districtlist.getAsJsonObject().toString(), Districtlist_Data.class);
-                                districtlist_datacity.add(gsonObjloccc);
-                            }
+                ArrayList<Districtlist_Data> districtlist_datacity = new ArrayList<>();
+                for (JsonElement districtlist : jsonObject.get("districtlist").getAsJsonArray()) {
+                    if (districtlist.getAsJsonObject().has("citylist")) {
+                        if (!districtlist.getAsJsonObject().get("citylist").isJsonArray()) {
+                            Districtlist_Data districtlist_data = new Districtlist_Data();
+                            districtlist_data.setCitylist(new ArrayList<Citylist_Data>());
+                            districtlist_data.setDistrictid(districtlist.getAsJsonObject().get("districtid").getAsString());
+                            districtlist_data.setDistrict(districtlist.getAsJsonObject().get("district").getAsString());
+                            districtlist_datacity.add(districtlist_data);
+                        } else {
+                            Gson gson = new Gson();
+                            Districtlist_Data gsonObjloccc = gson.fromJson(districtlist.getAsJsonObject().toString(), Districtlist_Data.class);
+                            districtlist_datacity.add(gsonObjloccc);
                         }
                     }
-                    notcity.setSubcatlist(districtlist_datacity);
-                    notcity.setState(jsonObject.get("state").getAsString());
-                notcity.setId(jsonObject.get("id").getAsString());
-                    return notcity;
                 }
-//    }
-
-//}
-
-
-//                System.out.println("starte CITY "+gsonObj.getId());
-//                System.out.println("starte CITY "+gsonObj.getSubcatlist().get(0).getDistrict());
-             else {
+                notcity.setSubcatlist(districtlist_datacity);
+                notcity.setState(jsonObject.get("state").getAsString());
+                notcity.setId(jsonObject.get("id").getAsString());
+                return notcity;
+            } else {
                 State state = new State();
                 state.setState(jsonObject.get("state").getAsString());
                 state.setId(jsonObject.get("id").getAsString());

@@ -5,14 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
-import android.widget.ImageView;
 
 import com.google.gson.Gson;
 
@@ -25,17 +22,15 @@ import java.util.Map;
 import data.model.BussinessDetailListing;
 import data.model.DealsWithList;
 
-import static com.example.rdx.vayparexpress.MainActivity.state;
-import static com.example.rdx.vayparexpress.MainActivity.statelisthas;
-
 /**
  * Created by Rajan Gupta on 02-07-2018.
  */
 
-public class SearchYourBusiness extends Activity implements CallBackToLocation, View.OnClickListener,SignUpAPICall.CallBackToClass {
+public class SearchYourBusiness extends Activity implements CallBackToLocation, View.OnClickListener, SignUpAPICall.CallBackToClass {
     private AutoCompleteTextView searchlocation, dealsWith;
     private boolean isSearching_Location, isSearching_dealswith;
-//    public static String searchlocationtext;
+
+    //    public static String searchlocationtext;
 //    private ImageView search_location;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,6 +144,7 @@ public class SearchYourBusiness extends Activity implements CallBackToLocation, 
                 break;
         }
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -157,7 +153,8 @@ public class SearchYourBusiness extends Activity implements CallBackToLocation, 
 
         }
     }
-    public void callAPICategory(View view){
+
+    public void callAPICategory(View view) {
         try {
 //            searchlocationtext = searchlocation.getText().toString();
             String URL = BuildConfig.SERVER_URL + "public/api/businesslist";
@@ -167,14 +164,14 @@ public class SearchYourBusiness extends Activity implements CallBackToLocation, 
             data.put("district", MainActivity.districtID);
             data.put("city", MainActivity.cityID);
             data.put("catid", dealsWith.getText().toString());
-            System.out.println("data "+data);
+            System.out.println("data " + data);
             new SignUpAPICall(URL, 0, "SEARCH_BUSSINESS", SearchYourBusiness.this, SearchYourBusiness.this).execute(data);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void callAPIBusiness(View view){
+    public void callAPIBusiness(View view) {
         try {
 //            searchlocationtext = searchlocation.getText().toString();
             String URL = BuildConfig.SERVER_URL + "public/api/businesslist";
@@ -184,7 +181,7 @@ public class SearchYourBusiness extends Activity implements CallBackToLocation, 
             data.put("district", MainActivity.districtID);
             data.put("city", MainActivity.cityID);
             data.put("text", searchlocation.getText().toString());
-            System.out.println("data "+data);
+            System.out.println("data " + data);
             new SignUpAPICall(URL, 0, "SEARCH_BUSSINESS", SearchYourBusiness.this, SearchYourBusiness.this).execute(data);
         } catch (Exception e) {
             e.printStackTrace();
@@ -202,7 +199,7 @@ public class SearchYourBusiness extends Activity implements CallBackToLocation, 
 
     @Override
     public void returnDataToClass(String tag, String data) {
-        switch (tag){
+        switch (tag) {
             case "SEARCH_BUSSINESS":
                 try {
                     JSONObject ob = new JSONObject(data);
@@ -214,8 +211,8 @@ public class SearchYourBusiness extends Activity implements CallBackToLocation, 
 //                    gsonObj.setObject(dd);
                     MainActivity.DataHolder.setData(ob.toString());
                     Intent intent = new Intent(SearchYourBusiness.this, ListingView.class);
-                    String dd=TextUtils.isEmpty(searchlocation.getText().toString())?dealsWith.getText().toString():searchlocation.getText().toString();
-                    intent.putExtra("DATA",dd);
+                    String dd = TextUtils.isEmpty(searchlocation.getText().toString()) ? dealsWith.getText().toString() : searchlocation.getText().toString();
+                    intent.putExtra("DATA", dd);
                     startActivity(intent);
                 } catch (Exception e) {
                     e.printStackTrace();
