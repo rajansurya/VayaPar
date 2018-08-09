@@ -85,7 +85,7 @@ public class BusinessDetail extends Activity implements View.OnClickListener {
         //state.setText(myParcelableObject.getState());
         phoneno1.setText(myParcelableObject.getMobile());
         phoneno2.setText(myParcelableObject.getPhone());
-        dealswith.setText("Mfrs. of " + myParcelableObject.getDealwith());
+        dealswith.setText( myParcelableObject.getDealwith());
         subcotegory.setText(myParcelableObject.getSubcategory());
         contact_person.setText(myParcelableObject.getContactperson());
         try {

@@ -68,7 +68,7 @@ public class DistrictCityView extends Activity {
             textView.setTextSize(15f);
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(2, 2, 2, 12);
+            params.setMargins(2, 2, 2, 17);
             textView.setLayoutParams(params);
             textView.setGravity(Gravity.CENTER);
             textView.setBackground(getResources().getDrawable(R.drawable.testline));
@@ -77,7 +77,7 @@ public class DistrictCityView extends Activity {
             for (final Citylist_Data ob : districts.getCitylist()) {
                 TextView textView1 = new TextView(DistrictCityView.this);
                 textView1.setText(ob.getCity());
-                textView1.setPadding(3, 3, 3, 3);
+                textView1.setPadding(3, 5, 3, 5);
                 textView1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.blackdot), null, null, null);
                 textView1.setCompoundDrawablePadding(3);
                 linearLayout.addView(textView1);
@@ -85,7 +85,7 @@ public class DistrictCityView extends Activity {
                 textView1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        System.out.println("VVVV  "+ob.getCityid()+" VVVVV "+districts.getDistrictid());
+                       // System.out.println("VVVV  "+ob.getCityid()+" VVVVV "+districts.getDistrictid());
                         Intent intent = new Intent();
                         intent.putExtra("cityid",ob.getCityid());
                         intent.putExtra("districtid",districts.getDistrictid());

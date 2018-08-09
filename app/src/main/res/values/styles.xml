@@ -29,7 +29,7 @@
     </style>
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/tab_shadow</item>
-        <item name="colorControlActivated">@color/drakyellow</item>
+        <item name="colorControlActivated">@color/dot_light_screen2</item>
     </style>
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">17sp</item>
