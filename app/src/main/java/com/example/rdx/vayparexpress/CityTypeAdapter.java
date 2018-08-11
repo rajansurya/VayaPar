@@ -20,12 +20,10 @@ import data.model.State;
  * Created by RDX on 07-07-2018.
  */
 
-public class CityTypeAdapter implements JsonDeserializer<Districtlist_Data>
-{
+public class CityTypeAdapter implements JsonDeserializer<Districtlist_Data> {
     @Override
     public Districtlist_Data deserialize(JsonElement arg0, Type type, JsonDeserializationContext jdc)
-            throws JsonParseException
-    {
+            throws JsonParseException {
         JsonObject decodeObj = arg0.getAsJsonObject();
         Gson gson = new Gson();
         Districtlist_Data decode = new Districtlist_Data();//gson.fromJson(arg0, Districtlist_Data.class);

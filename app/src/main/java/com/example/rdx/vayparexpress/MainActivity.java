@@ -243,7 +243,7 @@ public class MainActivity extends AppCompatActivity implements SignUpAPICall.Cal
         // making notification bar transparent
 //        changeStatusBarColor();
 
-        myViewPagerAdapter = new MyViewPagerAdapter(new ArrayList<BussinessDetailListingData>());
+        myViewPagerAdapter = new MyViewPagerAdapter(new ArrayList<BussinessDetailListingData>(),MainActivity.this);
         viewPager.setAdapter(myViewPagerAdapter);
 //        ads2.setAdapter(myViewPagerAdapter);
 
@@ -859,7 +859,7 @@ public class MainActivity extends AppCompatActivity implements SignUpAPICall.Cal
                     Gson gson = new Gson();
                     BussinessDetailListing adsList = gson.fromJson(ob.toString(), BussinessDetailListing.class);
                     dotSize = adsList.getObject().size();
-                    myViewPagerAdapter = new MyViewPagerAdapter(adsList.getObject());
+                    myViewPagerAdapter = new MyViewPagerAdapter(adsList.getObject(),MainActivity.this);
                     viewPager.setAdapter(myViewPagerAdapter);
                     dots_indicator.setViewPager(viewPager);
                 } catch (Exception e) {
@@ -1002,53 +1002,6 @@ public class MainActivity extends AppCompatActivity implements SignUpAPICall.Cal
         }
     }
 
-    public class MyViewPagerAdapter extends PagerAdapter {
-        private LayoutInflater layoutInflater;
-        ArrayList<BussinessDetailListingData> object;
-
-        public MyViewPagerAdapter(ArrayList<BussinessDetailListingData> object) {
-            this.object = object;
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, final int position) {
-            layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            View view = layoutInflater.inflate(R.layout.ads_view, container, false);
-            ImageView ads = (ImageView) view.findViewById(R.id.ads);
-            ads.setImageResource(R.drawable.noimage);
-            ads.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    BussinessDetailListingData data = object.get(position);
-                    Intent intent = new Intent(MainActivity.this, BusinessDetail.class);
-                    intent.putExtra("DETAILDATA", data);
-                    startActivity(intent);
-                }
-            });
-            Glide.with(MainActivity.this).load(object.get(position).getBanner()).placeholder(R.drawable.noimage).into(ads);
-            container.addView(view);
-
-            return view;
-        }
-
-        @Override
-        public int getCount() {
-            return object.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object obj) {
-            return view == obj;
-        }
-
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            View view = (View) object;
-            container.removeView(view);
-        }
-    }
 
     public static class LocationDialogFragment extends DialogFragment {
         @Nullable

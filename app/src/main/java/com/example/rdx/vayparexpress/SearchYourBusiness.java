@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -18,8 +20,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import data.model.BussinessDetailListing;
+import data.model.BussinessDetailListingData;
 import data.model.DealsWithList;
 
 /**
@@ -29,9 +34,15 @@ import data.model.DealsWithList;
 public class SearchYourBusiness extends Activity implements CallBackToLocation, View.OnClickListener, SignUpAPICall.CallBackToClass {
     private AutoCompleteTextView searchlocation, dealsWith;
     private boolean isSearching_Location, isSearching_dealswith;
-
+    private ViewPager viewPager;//ads2
+    private MyViewPagerAdapter myViewPagerAdapter;
     //    public static String searchlocationtext;
 //    private ImageView search_location;
+    private int currentPage = 0, currentPage1 = 0;
+    private Timer timer, timer2;
+    private final long DELAY_MS = 600;//delay in milliseconds before task is to be executed
+    private final long PERIOD_MS = 3000;
+    private int dotSize;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +109,32 @@ public class SearchYourBusiness extends Activity implements CallBackToLocation, 
 
             }
         });
+
+        viewPager=(ViewPager)findViewById(R.id.view_pager);
+        myViewPagerAdapter = new MyViewPagerAdapter(new ArrayList<BussinessDetailListingData>(),SearchYourBusiness.this);
+        viewPager.setAdapter(myViewPagerAdapter);
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == dotSize) {
+                    currentPage = 0;
+                }
+                viewPager.setCurrentItem(currentPage++, true);
+            }
+        };
+
+        timer = new Timer(); // This will create a new Thread
+        timer.schedule(new TimerTask() { // task to be scheduled
+
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, DELAY_MS, PERIOD_MS);
+
+        String ads = BuildConfig.SERVER_URL + "public/api/adslist/1";
+        new SignUpAPICall(ads, 1, "ads", SearchYourBusiness.this, this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new JSONObject());
+
     }
 
     @Override
@@ -142,6 +179,8 @@ public class SearchYourBusiness extends Activity implements CallBackToLocation, 
                 }
 
                 break;
+
+
         }
     }
 
@@ -214,6 +253,18 @@ public class SearchYourBusiness extends Activity implements CallBackToLocation, 
                     String dd = TextUtils.isEmpty(searchlocation.getText().toString()) ? dealsWith.getText().toString() : searchlocation.getText().toString();
                     intent.putExtra("DATA", dd);
                     startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case "ads":
+                try {
+                    JSONObject ob = new JSONObject(data);
+                    Gson gson = new Gson();
+                    BussinessDetailListing adsList = gson.fromJson(ob.toString(), BussinessDetailListing.class);
+                    dotSize = adsList.getObject().size();
+                    myViewPagerAdapter = new MyViewPagerAdapter(adsList.getObject(),SearchYourBusiness.this);
+                    viewPager.setAdapter(myViewPagerAdapter);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
