@@ -78,6 +78,7 @@ public class DistrictCityView extends Activity {
                 TextView textView1 = new TextView(DistrictCityView.this);
                 textView1.setText(ob.getCity());
                 textView1.setPadding(3, 5, 3, 5);
+                textView1.setBackgroundColor(getResources().getColor(R.color.white));
                 textView1.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.blackdot), null, null, null);
                 textView1.setCompoundDrawablePadding(3);
                 linearLayout.addView(textView1);
