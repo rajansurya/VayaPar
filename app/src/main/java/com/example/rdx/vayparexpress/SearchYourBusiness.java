@@ -59,7 +59,7 @@ public class SearchYourBusiness extends Activity implements CallBackToLocation, 
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (!TextUtils.isEmpty(charSequence)) {//&& charSequence.length() > 1
+                if (!TextUtils.isEmpty(charSequence)&& charSequence.length() > 2) {//&& charSequence.length() > 1
                     if (!isSearching_Location) {
                         try {
                             isSearching_Location = true;
@@ -88,7 +88,7 @@ public class SearchYourBusiness extends Activity implements CallBackToLocation, 
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (!TextUtils.isEmpty(charSequence)) {
+                if (!TextUtils.isEmpty(charSequence)&& charSequence.length() > 2) {
                     if (!isSearching_dealswith) {
                         try {
                             isSearching_dealswith = true;
