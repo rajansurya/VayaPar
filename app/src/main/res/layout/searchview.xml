@@ -128,5 +128,5 @@
         android:layout_marginTop="7dp"
         android:layout_below="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="250dp" />
 </RelativeLayout>
